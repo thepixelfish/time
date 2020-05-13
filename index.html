@@ -10,19 +10,44 @@
     </head>
     <body>
         <h1>Ohio</h1>
+        <div id="clockOhio">This is a time lol</div>
 
-        <div id="clock">This is a time lol</div>
+        <h1>Iceland</h1>
+        <div id="clockIceland">This is a time lol</div>
+
+        <h1>Tokyo</h1>
+        <div id="clockTokyo">This is a time lol</div>
 
         <script src="https://cdn.jsdelivr.net/npm/moment@2.25.3/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data-1970-2030.min.js"></script>
 
         <script>
-            const clock = document.getElementById('clock');
+            const clockLuke = document.getElementById('clockOhio');
+
+            const clockInge = document.getElementById('clockIceland');
+
+            const clockRyuki = document.getElementById('clockTokyo');
+
+            function createTimes () {
+                const nowLuke = moment();
+                const nowInge = moment.tz('Atlantic/Reykjavik');
+            }
 
             function updateTime () {
-                const now = moment();
-                const formatMoment = now.format("MMMM Do YYYY, h:mm:ss a");
+                const nowLuke = moment();
+                const nowInge = moment.tz('Atlantic/Reykjavik');
+                const nowRyuki = moment.tz('Asia/tokyo');
+
+
+                const formatLukeMoment = nowLuke.format("MMMM Do YYYY, h:mm:ss a");
+                const formatIngeMoment = nowInge.format("MMMM Do YYYY, h:mm:ss a");
+                const formatRyukiMoment = nowRyuki.format("MMMM Do YYYY, h:mm:ss a");
                 
-                clock.textContent = formatMoment;
+                clockLuke.textContent = formatLukeMoment;
+                clockInge.textContent = formatIngeMoment;
+                clockRyuki.textContent = formatRyukiMoment;
+
+
             }
 
             setInterval(updateTime, 1000);
