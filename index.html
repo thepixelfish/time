@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time</title>
+        <script type="text/javascript" src="script.js"></script>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>Ohio</h1>
+
+        <div id="clock">This is a time lol</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.25.3/moment.min.js"></script>
+
+        <script>
+            const clock = document.getElementById('clock');
+
+            function updateTime () {
+                const now = moment();
+                const formatMoment = now.format("MMMM Do YYYY, h:mm:ss a");
+                
+                clock.textContent = formatMoment;
+            }
+
+            setInterval(updateTime, 1000);
+            updateTime();
+
+        </script>
+    </body>
+</html>
