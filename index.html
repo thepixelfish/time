@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Time</title>
+        <link rel="shortcut icon" href="favicon.ico" type="favicon.icon">
         <script type="text/javascript" src="script.js"></script>
         <link type="text/css" rel="stylesheet" href="style.css">
         <style>
@@ -9,14 +10,16 @@
         </style>
     </head>
     <body>
-        <h1>Ohio</h1>
-        <div id="clockOhio">This is a time lol</div>
+        <h1 style="font-family: 'Chicago'">Ohio</h1>
+        <div id="clockOhio" style="font-family: 'Chicago'">This is a time lol</div>
 
-        <h1>Iceland</h1>
-        <div id="clockIceland">This is a time lol</div>
+        <h1 style="font-family: 'Chicago'">Iceland</h1>
+        <div id="clockIceland" style="font-family: 'Chicago'">This is a time lol</div>
 
-        <h1>Tokyo</h1>
-        <div id="clockTokyo">This is a time lol</div>
+        <h1 style="font-family: 'Chicago'">Tokyo</h1>
+        <div id="clockTokyo" style="font-family: 'Chicago'">This is a time lol</div>
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/moment@2.25.3/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data-1970-2030.min.js"></script>
@@ -39,9 +42,9 @@
                 const nowRyuki = moment.tz('Asia/tokyo');
 
 
-                const formatLukeMoment = nowLuke.format("MMMM Do YYYY, h:mm:ss a");
-                const formatIngeMoment = nowInge.format("MMMM Do YYYY, h:mm:ss a");
-                const formatRyukiMoment = nowRyuki.format("MMMM Do YYYY, h:mm:ss a");
+                const formatLukeMoment = nowLuke.format("h:mm:ss a MMMM Do YYYY");
+                const formatIngeMoment = nowInge.format("h:mm:ss a MMMM Do YYYY");
+                const formatRyukiMoment = nowRyuki.format("h:mm:ss a MMMM Do YYYY");
                 
                 clockLuke.textContent = formatLukeMoment;
                 clockInge.textContent = formatIngeMoment;
