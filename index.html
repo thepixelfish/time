@@ -13,11 +13,18 @@
         <h1 style="font-family: 'Chicago'">Ohio</h1>
         <div id="clockOhio" style="font-family: 'Chicago'">This is a time lol</div>
 
+        <h1 style="font-family: 'Chicago'">Utah</h1>
+        <div id="clockUtah" style="font-family: 'Chicago'">This is a time lol</div>
+
+        <h1 style="font-family: 'Chicago'">Arizona</h1>
+        <div id="clockAz" style="font-family: 'Chicago'">This is a time lol</div>
+
         <h1 style="font-family: 'Chicago'">Iceland</h1>
         <div id="clockIceland" style="font-family: 'Chicago'">This is a time lol</div>
 
         <h1 style="font-family: 'Chicago'">Tokyo</h1>
         <div id="clockTokyo" style="font-family: 'Chicago'">This is a time lol</div>
+
 
 
 
@@ -27,26 +34,36 @@
         <script>
             const clockLuke = document.getElementById('clockOhio');
 
+            const clockTroy = document.getElementById('clockUtah');
+
+            const clockSydney = document.getElementById('clockAz');
+
             const clockInge = document.getElementById('clockIceland');
 
             const clockRyuki = document.getElementById('clockTokyo');
 
-            function createTimes () {
-                const nowLuke = moment();
-                const nowInge = moment.tz('Atlantic/Reykjavik');
-            }
+            //function createTimes () {
+                //const nowLuke = moment();
+                //const nowInge = moment.tz('Atlantic/Reykjavik');
+            //}
 
             function updateTime () {
                 const nowLuke = moment();
+                const nowTroy = moment.tz('America/Denver');
+                const nowSydney = moment.tz('America/Phoenix');
                 const nowInge = moment.tz('Atlantic/Reykjavik');
                 const nowRyuki = moment.tz('Asia/tokyo');
 
 
                 const formatLukeMoment = nowLuke.format("h:mm:ss a MMMM Do YYYY");
+                const formatTroyMoment = nowTroy.format("h:mm:ss a MMMM Do YYYY");
+                const formatSydneyMoment = nowSydney.format("h:mm:ss a MMMM Do YYYY");
                 const formatIngeMoment = nowInge.format("h:mm:ss a MMMM Do YYYY");
                 const formatRyukiMoment = nowRyuki.format("h:mm:ss a MMMM Do YYYY");
                 
                 clockLuke.textContent = formatLukeMoment;
+                clockTroy.textContent = formatTroyMoment;
+                clockSydney.textContent = formatSydneyMoment;
                 clockInge.textContent = formatIngeMoment;
                 clockRyuki.textContent = formatRyukiMoment;
 
