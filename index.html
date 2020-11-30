@@ -37,10 +37,117 @@
             </div>
         </div>
 
+        <div id="pomodoro-container" class="flex-container">
+            <div id="clock" class="flex-item" style="padding-top: 300px;">
+                <div id="timer" style="font-family: 'Chicago'"></div>
+                <div id="actions">
+                    <button id="start">Start</button>
+                    <button id="pause">Pause</button>
+                    <button id="stop">Stop</button>
+                </div>
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/moment@2.25.3/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data-1970-2030.min.js"></script>
 
         <script>
+            //Pomodoro stuff!
+            const timer = document.querySelector('#timer');
+
+            //buttons
+            const start = document.querySelector('#start');
+            const pause = document.querySelector('#pause');
+            const stop = document.querySelector('#stop');
+
+            let type = 'work';
+
+            //stop event
+            start.addEventListener('click', () => {
+                toggleClock();
+            })
+
+            //pause event
+            pause.addEventListener('click', () => {
+                toggleClock();
+            })
+
+            //stop event
+            stop.addEventListener('click', () => {
+                toggleClock(true);
+            })
+
+            //Set clock stuff!
+            //run clock
+            let isClockRunning = false;
+
+            //time set to 25
+            let duration = 25;
+            let durationLeft = 25;
+            //timer set to 5
+            let breakTime = 300;
+
+            //Function
+            const toggleClock = (reset) => {
+                if (reset) {
+                    //stop timer
+                    stopClock();
+                } else {
+                    if (isClockRunning == true) {
+                        //pause timer
+                        clearInterval(clockTimer);
+                        isClockRunning = false;
+                    } else {
+                        //start timer
+                        isClockRunning = true;
+                        clockTimer = setInterval(() => {
+                            //decrease time
+                            stepDown();
+                            displayTimeLeft();
+                        }, 1000)
+                    }
+                }
+            }
+
+            const stepDown = () => {
+                if (durationLeft > 0){
+                    durationLeft--;
+                } else if (durationLeft === 0){
+                    if (type === 'work') {
+                        durationLeft = breakTime;
+                        type = 'break';
+                    } else {
+                        durationLeft = duration;
+                        type = 'work';
+                    }
+                }
+                displayTimeLeft();
+            }
+
+            const stopClock = () => {
+                clearInterval(clockTimer);
+                isClockRunning = false;
+                durationLeft = duration;
+                displayTimeLeft();
+            }
+
+            const displayTimeLeft = () => {
+                //time variables
+                const secondsLeft = durationLeft;
+                let result = '';
+                const seconds = secondsLeft % 60;
+                const minutes = parseInt(secondsLeft / 60) % 60;
+                let hours = parseInt(secondsLeft / 3600);
+                //zeroes
+                function addZeroes(time){
+                    return time < 10 ? `0${time}` : time
+                }
+                if (hours > 0) result += `${hours}:`
+                result += `${addZeroes(minutes)}:${addZeroes(seconds)}`
+                timer.innerText = result.toString();
+            }
+
+            //Clock stuff!
             const clockLuke = document.getElementById('clockOhio');
 
             const clockTroy = document.getElementById('clockUtah');
