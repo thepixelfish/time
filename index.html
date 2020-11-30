@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -192,3 +193,92 @@
         </script>
     </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time</title>
+        <link rel="shortcut icon" href="favicon.ico" type="favicon.icon">
+        <script type="text/javascript" src="script.js"></script>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item">
+                <h1 style="font-family: 'Chicago'">Ohio</h1>
+                <div id="clockOhio" style="font-family: 'Chicago'">This is a time lol xd</div>
+            </div>
+
+            <div class="flex-item">
+                <h1 style="font-family: 'Chicago'">Utah</h1>
+                <div id="clockUtah" style="font-family: 'Chicago'">This is a time lol</div>
+            </div>
+
+            <div class="flex-item">
+                <h1 style="font-family: 'Chicago'">Arizona</h1>
+                <div id="clockAz" style="font-family: 'Chicago'">This is a time lol</div>
+            </div>
+
+            <div class="flex-item">
+                <h1 style="font-family: 'Chicago'">Iceland</h1>
+                <div id="clockIceland" style="font-family: 'Chicago'">This is a time lol</div>
+            </div>
+
+            <div class="flex-item">
+                <h1 style="font-family: 'Chicago'">Tokyo</h1>
+                <div id="clockTokyo" style="font-family: 'Chicago'">This is a time lol</div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.25.3/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data-1970-2030.min.js"></script>
+
+        <script>
+            const clockLuke = document.getElementById('clockOhio');
+
+            const clockTroy = document.getElementById('clockUtah');
+
+            const clockSydney = document.getElementById('clockAz');
+
+            const clockInge = document.getElementById('clockIceland');
+
+            const clockRyuki = document.getElementById('clockTokyo');
+
+            //function createTimes () {
+                //const nowLuke = moment();
+                //const nowInge = moment.tz('Atlantic/Reykjavik');
+            //}
+
+            function updateTime () {
+                const nowLuke = moment();
+                const nowTroy = moment.tz('America/Denver');
+                const nowSydney = moment.tz('America/Phoenix');
+                const nowInge = moment.tz('Atlantic/Reykjavik');
+                const nowRyuki = moment.tz('Asia/tokyo');
+
+
+                const formatLukeMoment = nowLuke.format("h:mm:ss a MMMM Do YYYY");
+                const formatTroyMoment = nowTroy.format("h:mm:ss a MMMM Do YYYY");
+                const formatSydneyMoment = nowSydney.format("h:mm:ss a MMMM Do YYYY");
+                const formatIngeMoment = nowInge.format("h:mm:ss a MMMM Do YYYY");
+                const formatRyukiMoment = nowRyuki.format("h:mm:ss a MMMM Do YYYY");
+                
+                clockLuke.textContent = formatLukeMoment;
+                clockTroy.textContent = formatTroyMoment;
+                clockSydney.textContent = formatSydneyMoment;
+                clockInge.textContent = formatIngeMoment;
+                clockRyuki.textContent = formatRyukiMoment;
+
+
+            }
+
+            setInterval(updateTime, 1000);
+            updateTime();
+
+        </script>
+    </body>
+</html>
+>>>>>>> 8ca8eeae7cd4b49b66a91b326ea748bfd61edb42
